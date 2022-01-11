@@ -47,6 +47,5 @@ if [ -f ~/Sources/configurations/bash_aliases ]; then
 fi
 
 
-
 eval "$(direnv hook bash)"
-
+export KITTY_CONFIG_DIRECTORY=~/Sources/configurations/kitty_configurations.conf
