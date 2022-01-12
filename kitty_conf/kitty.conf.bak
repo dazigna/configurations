@@ -1,15 +1,14 @@
 # vim:fileencoding=utf-8:foldmethod=marker
-
 #: Fonts {{{
 
 #: kitty has very powerful font management. You can configure
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-# font_family      monospace
-# bold_font        auto
-# italic_font      auto
-# bold_italic_font auto
+font_family      Source Code Pro Regular
+bold_font        Source Code Pro SemiBold
+italic_font      Source Code Pro Regular
+bold_italic_font Source Code Pro SemiBold Italic
 
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
@@ -23,7 +22,7 @@
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 13.0
+font_size 14.0
 
 #: Font size (in pts)
 
@@ -268,8 +267,7 @@ font_size 13.0
 #: typing text. Disabled by default on macOS as getting it to work
 #: robustly with the ever-changing sea of bugs that is Cocoa is too
 #: much effort.
-
-url_color #0087bd
+# url_color #0087bd
 url_style curly
 
 #: The color and style for highlighting URLs on mouse-over. url_style
@@ -1507,3 +1505,9 @@ macos_quit_when_last_window_closed yes
 #: }}}
 
 #: }}}
+
+
+# BEGIN_KITTY_THEME
+# Tango Dark
+include current-theme.conf
+# END_KITTY_THEME

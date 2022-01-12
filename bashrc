@@ -48,4 +48,4 @@ fi
 
 
 eval "$(direnv hook bash)"
-export KITTY_CONFIG_DIRECTORY=~/Sources/configurations/kitty_configurations.conf
+launchctl setenv KITTY_CONFIG_DIRECTORY ~/Sources/configurations/kitty_conf/
