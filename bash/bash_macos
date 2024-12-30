@@ -1,0 +1,6 @@
+# include local bash_profile if exists
+if [ -f ~/.bash_profile.local ]; then
+ . ~/.bash_profile.local
+fi
+
+eval "$(/opt/homebrew/bin/brew shellenv)"

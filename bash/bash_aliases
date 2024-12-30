@@ -33,6 +33,6 @@ extract () {
 }
 
 
-if [ -f ~/Sources/configurations/git_aliases ]; then
-    . ~/Sources/configurations/git_aliases
+if [ -f ~.git_aliases ]; then
+    . .git_aliases
 fi

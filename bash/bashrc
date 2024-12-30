@@ -1,0 +1,28 @@
+export CLICOLOR=1
+export EDITOR=code
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Bash Aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# Load specific OS bash config
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    if [ -f ~/.bashrc_macos ]; then
+        . ~/.bashrc_macos
+    fi
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    if [ -f ~/.bashrc_linux ]; then
+        . ~/.bashrc_linux
+    fi
+fi
+
+# Load Starship
+CONFIG_DIR=~/Sources/configurations
+
+eval "$(starship init bash)"
+export STARSHIP_CONFIG=$CONFIG_DIR/starship/starship.toml
+
+# Load Kitty
+launchctl setenv KITTY_CONFIG_DIRECTORY $CONFIG_DIR/kitty_conf/
