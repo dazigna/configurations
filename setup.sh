@@ -66,6 +66,8 @@ if [[ "$OSTYPE" == darwin* ]]; then
     if ! [ -x "$(command -v brew)" ]; then
         echo 'Installing brew...' 
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        brew install git
+        brew install bash-completion
         echo 'Done\n'
     else
         echo 'Brew - already installed'
