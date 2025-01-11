@@ -93,24 +93,27 @@ elif [[ "$OSTYPE" == linux* ]]; then
 fi
 
 echo '\n---------------------------\n'
-exit 0
 
 # Create git config
-# Read user input
-echo "Setting up Git configuration"
-
-echo -n "Enter your Git email address: "
-read -r GIT_EMAIL
-
-echo -n "Enter your Git username: "
-read -r GIT_USERNAME
-
 if [ -f ~/.gitconfig ]; then
-    echo "Backing up existing .gitconfig to .gitconfig.bak"
-    mv ~/.gitconfig ~/.gitconfig.bak
-fi
-# Create gitconfig with user input
-cat > $CONFIG_DIR/git/gitconfig << EOF
+    echo "Skipping Git configuration setup. Git config already exists"
+else
+    # Read user input
+    echo "Setting up Git configuration"
+
+    echo -n "Enter your Git email address: "
+    read -r GIT_EMAIL
+
+    echo -n "Enter your Git username: "
+    read -r GIT_USERNAME
+
+    if [ -f ~/.gitconfig ]; then
+        echo "Backing up existing .gitconfig to .gitconfig.bak"
+        mv ~/.gitconfig ~/.gitconfig.bak
+    fi
+
+    # Create gitconfig with user input
+    cat > $CONFIG_DIR/git/gitconfig << EOF
 [user]
     email = ${GIT_EMAIL}
     name = ${GIT_USERNAME}
@@ -121,10 +124,13 @@ cat > $CONFIG_DIR/git/gitconfig << EOF
     ui = auto
 EOF
 
-ln -sf $CONFIG_DIR/git/gitignore_global ~/.gitignore_global
-ln -sf $CONFIG_DIR/git/gitconfig ~/.gitconfig
+    ln -sf $CONFIG_DIR/git/gitignore_global ~/.gitignore_global
+    ln -sf $CONFIG_DIR/git/gitconfig ~/.gitconfig
+fi
 
-echo 'Git configuration - Done\n'
+echo 'Git configuration - Done'
+
+echo '\n---------------------------\n'
 
 # ---------------------------
 # Git completion
@@ -136,7 +142,9 @@ else
     echo 'Git completion - Nothing to do'
 fi
 
-echo 'Git completion - Done\n'
+echo 'Git completion - Done'
+
+echo '\n---------------------------\n'
 
 # ---------------------------
 # Setup bash aliases
@@ -147,3 +155,19 @@ if [ -f ~/.bash_aliases ]; then
     mv ~/.bash_aliases ~/.bash_aliases.bak
 fi
 ln -sf $CONFIG_DIR/bash/bash_aliases ~/.bash_aliases
+
+echo 'Bash aliases - Done'
+echo '\n---------------------------\n'
+# ---------------------------
+#Sourcing current bash
+echo 'Sourcing current bash\n'
+if [[ "$OSTYPE" == darwin* ]]; then
+    source ~/.bash_profile
+elif [[ "$OSTYPE" == linux* ]]; then
+    source ~/.bashrc
+fi
+echo 'Source bash Done'
+
+echo '\n---------------------------\n'
+
+echo 'Configuration setup complete\n'
