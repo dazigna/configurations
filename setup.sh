@@ -133,18 +133,33 @@ echo 'Git configuration - Done'
 echo '\n---------------------------\n'
 
 # ---------------------------
-# Git completion
-echo 'Setting up Git completion\n'
-if ! [ -f ~/.git-completion.bash ]; then
-    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -so ~/.git-completion.bash
-    echo 'Done'
-else
-    echo 'Git completion - Nothing to do'
+# # Git completion
+# echo 'Setting up Git completion\n'
+# if ! [ -f ~/.git-completion.bash ]; then
+#     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+#     chmod +x ~/.git-completion.bash
+#     echo 'Done'
+# else
+#     echo 'Git completion - Nothing to do'
+# fi
+
+# echo 'Git completion - Done'
+
+# echo '\n---------------------------\n'
+
+# ---------------------------
+# Setup bash aliases
+# Depends on git completion installed first
+echo 'Setting up Git aliases\n'
+if [ -f ~/.git_aliases ]; then
+    echo "Backing up existing .git_aliases to .git_aliases.bak"
+    mv ~/.git_aliases ~/.git_aliases.bak
 fi
+ln -sf $CONFIG_DIR/git/git_aliases ~/.git_aliases
 
-echo 'Git completion - Done'
-
+echo 'Git aliases - Done'
 echo '\n---------------------------\n'
+
 
 # ---------------------------
 # Setup bash aliases

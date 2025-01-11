@@ -7,17 +7,17 @@ add_newline = true
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[➜](bold magenta)'
-error_symbol = "[$ ](red bold)"
+error_symbol = "[>](red bold)"
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
 
 # Format for prompt
 format = """
-$username\
-$directory\
-$git_branch\
-$git_status\
+$username \
+$directory \
+$git_branch \
+$git_status \
 $character
 """
 

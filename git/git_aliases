@@ -25,33 +25,7 @@ gitDeleteLocalBranches(){
     done
 }
 
- # Get the current git branch
-getGitPrompt() {
-    local status="$(git status -s 2> /dev/null)"
-    local branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
-    local prompt=""
- 
-    if [ -n "$branch" ]; then
-        prompt=" ("
-        prompt="$prompt$branch"
- 
-        if [ -n "$status" ]; then
-            prompt="$prompt*"
-        fi
- 
-        prompt="$prompt)"
-    fi
- 
-    echo "${prompt}"
-}
- 
 #Git branch bash completion
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
-
-    # Add git completion to aliases
-    # __git_complete g __git_main
-    __git_complete gco _git_checkout
-    __git_complete gm _git_merge
-    __git_complete gp _git_pull
 fi
