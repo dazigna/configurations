@@ -6,6 +6,7 @@ $directory\
 $git_branch\
 $git_status\
 $fill\
+$elixir\
 $python\
 $golang\
 $package\
@@ -47,6 +48,10 @@ pyenv_prefix = ''
 [golang]
 style = 'blue'
 symbol = '󰟓 '
+
+[elixir]
+style = 'purple'
+symbol = ' '
 
 [package]
 symbol = ' '
