@@ -1,6 +1,6 @@
-export CLICOLOR=1
 export EDITOR=code
 export BASH_SILENCE_DEPRECATION_WARNING=1
+export TERM=xterm-256color
 
 # Bash Aliases
 if [ -f ~/.bash_aliases ]; then
@@ -22,6 +22,10 @@ fi
 CONFIG_DIR=~/Sources/configurations
 
 eval "$(starship init bash)"
-
+#direnv hooks
+eval "$(direnv hook bash)"
+eval "$(fzf --bash)"
 export STARSHIP_CONFIG=$CONFIG_DIR/starship/starship.toml
 export KITTY_CONFIG_DIRECTORY=$CONFIG_DIR/kitty_conf/
+
+. "$HOME/.local/bin/env"

@@ -36,3 +36,15 @@ extract () {
 if [ -f ~/.git_aliases ]; then
     . ~/.git_aliases
 fi
+
+
+#Azure VM helpers
+vm_name=taghazout
+query_str_vm_status="[?name=='vm-prod-workstation-$vm_name']"
+query_str_vm_status_short="$query_str_vm_status.powerState"
+
+alias vm-status='az vm list -d -o table --query "$query_str_vm_status" -g rg-prod-workstations --subscription d6014126-c287-47b2-a59f-c4d053a9f5ae'
+alias vm-status-short='az vm list -d -o tsv --query "$query_str_vm_status_short" -g rg-prod-workstations --subscription d6014126-c287-47b2-a59f-c4d053a9f5ae'
+alias vm-up='az vm start -g rg-prod-workstations -n vm-prod-workstation-$vm_name --subscription d6014126-c287-47b2-a59f-c4d053a9f5ae'
+alias vm-down='az vm deallocate -g rg-prod-workstations -n vm-prod-workstation-$vm_name --subscription d6014126-c287-47b2-a59f-c4d053a9f5ae'
+alias vm-ssh='az ssh vm -n vm-prod-workstation-$vm_name --local-user $USER -g rg-prod-workstations --prefer-private-ip --subscription d6014126-c287-47b2-a59f-c4d053a9f5ae'

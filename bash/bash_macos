@@ -4,6 +4,8 @@ if [ -f ~/.bash_profile.local ]; then
 fi
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+#direnv hooks
+eval "$(direnv hook bash)"
 
 # if type brew &>/dev/null
 # then
