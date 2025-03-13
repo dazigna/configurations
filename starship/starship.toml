@@ -28,8 +28,8 @@ truncation_symbol = '…/'
 truncate_to_repo = true
 
 [hostname]
-ssh_only = true
-format = '[$ssh_symbol](bold purple) on [$hostname](bold orange) '
+ssh_only = false
+format = '[$hostname](bold purple) '
 disabled = false
 
 [git_branch]
