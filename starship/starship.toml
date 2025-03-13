@@ -2,6 +2,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+$hostname\
 $directory\
 $git_branch\
 $git_status\
@@ -24,7 +25,12 @@ style = 'bold fg:dark_blue'
 format = '[$path ]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
-truncate_to_repo = false
+truncate_to_repo = true
+
+[hostname]
+ssh_only = true
+format = '[$ssh_symbol](bold purple) on [$hostname](bold orange) '
+disabled = false
 
 [git_branch]
 style = 'fg:green'
@@ -62,6 +68,11 @@ style = 'fg:#06969A'
 format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 detect_extensions = ['Dockerfile']
+
+[terraform]
+symbol = ' '
+style = 'purple'
+format = '[$symbol$workspace]($style)'
 
 [jobs]
 symbol = ' '
