@@ -3,6 +3,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias ls='ls -a'
 alias ..='cd ..'
+alias cdls='cd "$@" && ls'
 
 alias sudo='sudo '
 alias bc='bc -l'

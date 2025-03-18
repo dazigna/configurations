@@ -2,6 +2,13 @@ export EDITOR=code
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export TERM=xterm-256color
 
+# Use Homebrew's bash if available
+if [ -f /usr/local/bin/bash ]; then
+    export SHELL=/usr/local/bin/bash
+elif [ -f /opt/homebrew/bin/bash ]; then
+    export SHELL=/opt/homebrew/bin/bash
+fi
+
 # Bash Aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
