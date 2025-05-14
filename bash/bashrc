@@ -36,3 +36,5 @@ export STARSHIP_CONFIG=$CONFIG_DIR/starship/starship.toml
 export KITTY_CONFIG_DIRECTORY=$CONFIG_DIR/kitty_conf/
 
 . "$HOME/.local/bin/env"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
